@@ -1,0 +1,1 @@
+<img class="translate-x-[20%] scale-110" src="/images/illustration-working.svg" alt="">
