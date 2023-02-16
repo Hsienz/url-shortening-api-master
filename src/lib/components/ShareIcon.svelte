@@ -3,4 +3,4 @@
     export let props: tShareIcon
 </script>
 
-<img src={props.icon} alt="">
+<a href={"#"}><img src={props.icon} alt=""></a>

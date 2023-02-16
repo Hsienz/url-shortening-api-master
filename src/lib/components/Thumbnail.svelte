@@ -1,1 +1,1 @@
-<img class="translate-x-[20%] scale-110" src="/images/illustration-working.svg" alt="">
+<div class="bg-[url('./images/illustration-working.svg')] bg-cover bg-no-repeat relative h-[300px] translate-x-[15%]"></div>
