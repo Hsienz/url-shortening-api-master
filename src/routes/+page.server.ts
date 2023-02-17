@@ -17,6 +17,7 @@ export const actions: Actions = {
 		);
 		const json = await response.json();
 		console.log(json);
+		if(!json.ok) return json
 		let newHistories:tHistory[] = JSON.parse( cookies.get('histories') ?? "[]" )
 		newHistories.push({
 			url: json.result.original_link,
