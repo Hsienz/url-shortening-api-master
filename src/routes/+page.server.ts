@@ -1,33 +1,12 @@
 import type { tHistory } from "$lib/types/history";
 import type { Actions, PageServerLoad } from "./$types";
 
-type load = {
-	histories: tHistory[]
-}
-
-
-export const load: PageServerLoad<load> = async ({ cookies }) => {
-	let res:load = {
-		histories : []
-	}
-	console.log(cookies)
-	let compress = cookies.get('histories') ?? ""
-	console.log(compress)
-	if( !compress ) return res
-	let urls = compress.match(/.*?;.*?;/g)
-	console.log(urls)
-	if( !urls ) return res
-	res.histories = urls.map(x=>{
-		let temp = x.match(/.*?;/g)
-		console.log(temp)
-		let res:tHistory = {
-			url: temp?temp[0].slice(0,-1):"",
-			shortenUrl: temp?temp[1].slice(0,-1):""
-		}
-		return res
-	})
-	return res
+export const load: PageServerLoad = async ({ cookies }) => {
+	let historiesString = cookies.get("histories") ?? "{}"
+	let histories = JSON.parse( historiesString )
+	return {histories}
 };
+
 export const actions: Actions = {
 	default: async ({ request, cookies }) => {
 		const data = await request.formData();
@@ -38,7 +17,15 @@ export const actions: Actions = {
 		);
 		const json = await response.json();
 		console.log(json);
-		cookies.set("histories", (cookies.get("histories") ?? "") + `${json.result.original_link};${json.result.full_short_link};`);
+		let newHistories:tHistory[] = JSON.parse( cookies.get('histories') ?? "[]" )
+		newHistories.push({
+			url: json.result.original_link,
+			shortenUrl: json.result.full_short_link
+		})
+		cookies.set("histories", JSON.stringify(newHistories) )
+		let temp = cookies.get("histories") ?? "{}"
+		console.log(temp)
+		console.log( JSON.parse( temp ) )
 		return json;
 	},
 };

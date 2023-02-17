@@ -17,7 +17,7 @@
 		<div class="-mx-4 overflow-hidden"><Thumbnail/></div>
 		<Intro />
 	</div>
-	<div class="before:bg-Dark_Violet before:content-[''] before:absolute before:w-full before:top-0 before:left-0 before:h-full before:-z-10 before:opacity-10 px-4 relative pt-36 pb-24">
+	<div class="flex flex-col gap-16 before:bg-Dark_Violet before:content-[''] before:absolute before:w-full before:top-0 before:left-0 before:h-full before:-z-10 before:opacity-10 px-4 relative pt-36 pb-24">
 		<div class="absolute top-0 -translate-y-1/2 w-full left-0 px-[inherit]"><URL /></div>
 		<Histories histories={data.histories}/>
 		<Function />
