@@ -2,7 +2,7 @@ import type { tHistory } from "$lib/types/history";
 import type { Actions, PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async ({ cookies }) => {
-	let historiesString = cookies.get("histories") ?? "{}"
+	let historiesString = cookies.get("histories") ?? "[]"
 	let histories = JSON.parse( historiesString )
 	return {histories}
 };
@@ -24,7 +24,7 @@ export const actions: Actions = {
 			shortenUrl: json.result.full_short_link
 		})
 		cookies.set("histories", JSON.stringify(newHistories) )
-		let temp = cookies.get("histories") ?? "{}"
+		let temp = cookies.get("histories") ?? "[]"
 		console.log(temp)
 		console.log( JSON.parse( temp ) )
 		return json;
