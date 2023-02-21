@@ -16,7 +16,7 @@
 
 <div
 	class={`${
-		toggled ? "" : "!hidden"
+		toggled ? "" : "hidden"
 	} lg:basis-full lg:justify-between lg:flex lg:opacity-100 lg:p-0 lg:w-auto lg:relative lg:flex-row lg:inset-0 lg:bg-transparent lg:text-Gray duration-300 flex absolute text-white font-bold top-[200%] z-10 bg-Dark_Violet flex-col w-full left-0 rounded-2xl py-9 px-8 gap-6`}
 >
 	<div class="flex flex-col lg:flex-row gap-[inherit]">
