@@ -3,7 +3,7 @@
 	export let props: tCard;
 </script>
 
-<div class="bg-white rounded-md px-6 pb-16">
+<div class="bg-white rounded-md px-6 pb-16 xl:w-96">
 	<div
 		class="bg-Dark_Violet flex justify-center items-center h-20 mx-auto aspect-square rounded-full -translate-y-1/2"
 	>

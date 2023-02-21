@@ -1,1 +1,1 @@
-<div class="bg-[url('/images/illustration-working.svg')] bg-cover bg-no-repeat relative h-[300px] translate-x-[15%]"></div>
+<div class="bg-[url('/images/illustration-working.svg')] bg-no-repeat relative bg-cover w-full h-full"></div>

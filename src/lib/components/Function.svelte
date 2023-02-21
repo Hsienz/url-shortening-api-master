@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { cards } from "../data/cards";
 	import Card from "./Card.svelte";
+	const cardsOffset = ["mt-0", "mt-8", "mt-16"];
 </script>
 
 <div class="text-center flex flex-col gap-24">
@@ -15,11 +16,14 @@
 	</div>
 
 	<div class="relative">
-		<div class="h-full w-2 bg-Cyan absolute left-1/2 -translate-x-1/2"></div>
-		<div class="flex flex-col gap-24 z-10 relative">
-			{#each cards as item}
+		<div
+			class="h-full w-2 bg-Cyan absolute left-1/2 -translate-x-1/2 xl:h-2 xl:w-full xl:top-1/2 xl:left-0 xl:-translate-x-0"
+
+		/>
+		<div class="flex flex-col gap-24 xl:gap-8 z-10 relative xl:flex-row xl:justify-between">
+			{#each cards as item,i}
 				<!-- content here -->
-				<Card props={item} />
+				<div class={`${cardsOffset[i]} mx-auto xl:mx-0`}><Card props={item} /></div>
 			{/each}
 		</div>
 	</div>

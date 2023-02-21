@@ -9,7 +9,7 @@
 	<div class="flex flex-col gap-4">
 		{#each props.child as item}
 			<!-- content here -->
-			<a href={"#"}>{item}</a>
+			<a class="hover:text-Cyan duration-300" href={"#"}>{item}</a>
 		{/each}
 	</div>
 </section>
